@@ -1,0 +1,239 @@
+/* Basic body styling and centering content */
+body {
+    font-family: Roboto, sans-serif;
+    background: rgb(124,10,10);
+    background: radial-gradient(circle, rgba(124,10,10,1) 0%, rgba(139,55,164,1) 44%, rgba(0,0,0,1) 75%);    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Main container for links */
+.link-container {
+    text-align: center;
+    background-color: #f7f1eb;
+    border: 3px solid #c77426;
+    color: #333333;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    box-sizing: border-box;
+    --logo-max-width: 100px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.social-icons a {
+    background: none;
+    padding: 0;
+    margin: 0 5px;
+    border: none;
+    box-shadow: none;
+    display: inline-flex;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
+
+h1, h2, h3 { margin-bottom: 5px; }
+
+h3 {
+    font-size: 0.85em;
+    margin-top: -5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li { margin: 15px 0; }
+
+.link-container > ul > li > a,
+.sub-buttons a {
+    display: block;
+    text-decoration: none;
+    color: #f7f3ef;
+    background-color: #313131;
+    border: 2px solid #801f9e;
+    padding: 10px 15px;
+    border-radius: 3px;
+    transition: background-color 0.3s, padding-bottom 0.3s;
+}
+
+.link-container > ul > li > a:hover,
+.sub-buttons a:hover {
+    background-color: #4e4e4e;
+    letter-spacing: 0.075em;
+}
+
+/* Social icons specific styling */
+.social-icons a {
+    background: none;
+    padding: 0;
+    margin: 0 5px;
+    border: none;
+    box-shadow: none;
+    display: inline-flex;
+}
+
+.social-icons a:hover {
+    background: none;
+}
+
+a:hover { background-color: #666666; }
+
+/* Logo styling */
+.logo-container {
+    margin-bottom: 20px;
+    pointer-events: none;
+}
+
+.logo {
+    max-width: var(--logo-max-width);
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* Container customization */
+.training_app-container,
+.gym-container {
+    position: relative;
+    overflow: visible;
+}
+
+.favorites-text {
+    font-size: 0.8rem;
+    margin: 5px 0;
+    opacity: 0;
+    max-height: 0;
+    transition: opacity 0.3s, max-height 0.3s;
+}
+
+.sub-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7px;
+    opacity: 0;
+    max-height: 0;
+    transition: opacity 0.3s, max-height 0.3s;
+    visibility: hidden;
+}
+
+/* Border animation styles */
+.training_app-container a,
+.gym-container a {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.training_app-container a::before,
+.gym-container a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.training_app-container a:hover::before,
+.gym-container a:hover::before {
+    left: 100%;
+}
+
+/* Modified gym container hover text styles */
+.gym-container {
+    position: relative;
+    overflow: visible;
+}
+
+.gym-container .hover-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 0.8em;
+    letter-spacing: 0.05em;
+    font-variant: normal;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s, transform 0.3s;
+    background-color: transparent; /* Make background transparent */
+    color: #ffffff; /* Ensure text is visible */
+    padding: 3px;
+    border-radius: 0 0 3px 3px;
+    z-index: 2;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Add text shadow for better visibility */
+}
+
+.gym-container:hover .hover-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gym-container:hover a {
+    padding-bottom: 25px;
+}
+
+/* Keep the training_app container styles */
+.training_app-container:hover .favorites-text,
+.training_app-container:hover .sub-buttons {
+    opacity: 1;
+    max-height: 200px;
+    visibility: visible;
+}
+
+.main-link {
+    font-variant:normal;
+    font-size: 1em; /* Adjust this value as needed */
+    letter-spacing: 0.05em; /* Optional: adds a bit of spacing between letters */
+}
+
+footer {
+    margin-top: 30px;
+    margin-bottom: -25px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666666;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .link-container {
+        max-width: calc(100% - 20px);
+        padding: 20px;
+    }
+
+    a { font-size: 0.9rem; }
+}

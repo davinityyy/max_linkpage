@@ -1,0 +1,126 @@
+/* Basic body styling and centering content */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Main container for links */
+.content-container {
+    text-align: center;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    color: #333333;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+h1, h2, h3 { margin-bottom: 10px; }
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li { margin: 15px 0; }
+
+a {
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #4a4a4a;
+    padding: 10px 15px;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+a:hover { background-color: #666666; }
+
+/* button1 container customization */
+.button1-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.favorites-text {
+    font-size: 0.8rem;
+    margin: 5px 0;
+    opacity: 0;
+    max-height: 0;
+    transition: opacity 0.3s, max-height 0.3s;
+}
+
+.sub-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7px;
+    opacity: 0;
+    max-height: 0;
+    transition: opacity 0.3s, max-height 0.3s;
+    visibility: hidden;
+}
+
+.button1-container:hover .favorites-text,
+.button1-container:hover .sub-buttons {
+    opacity: 1;
+    max-height: 200px;
+    visibility: visible;
+}
+
+/* button2 container customization */
+.button2-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.button2-container .hover-text {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    font-size: 0.7em;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s, transform 0.3s;
+    background-color: #666666;
+    padding: 3px;
+    border-radius: 0 0 3px 3px;
+}
+
+.button2-container:hover .hover-text {
+    opacity: 1;
+    transform: translateY(0);
+    bottom: 0;
+}
+
+.button2-container:hover a {
+    padding-bottom: 20px;
+}
+
+footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666666;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .content-container {
+        max-width: calc(100% - 20px);
+        padding: 20px;
+    }
+
+    a { font-size: 0.9rem; }
+}
